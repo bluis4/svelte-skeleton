@@ -1,0 +1,3 @@
+/* src/lib/assets/app.css */
+@import "tailwindcss";
+@plugin "daisyui";

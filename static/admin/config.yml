@@ -1,0 +1,147 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: bluis4/svelte-skeleton
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  # ── Global site settings (one fixed file) ─────────────────
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "site"
+        label: "Site Settings"
+        file: "src/content/settings/site.json"
+        fields:
+          - { label: "Site Name", name: "site_name", widget: "string" }
+          - { label: "Brand Highlight", name: "brand_highlight", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
+          - { label: "Header CTA Text", name: "cta_text", widget: "string", required: false }
+          - { label: "Header CTA Link", name: "cta_link", widget: "string", required: false }
+          - label: "Theme Preset"
+            name: "theme_preset"
+            widget: "select"
+            options: ["default", "hotel", "spa"]
+            default: "default"
+          - label: "Color Palette"
+            name: "color_palette"
+            widget: "select"
+            options: ["light", "dark", "emerald", "luxury", "pastel"]
+            default: "dark"
+          - label: "Blog Pagination"
+            name: "blog_pagination"
+            widget: "select"
+            options: ["numbered", "infinite"]
+            default: "infinite"
+          - { label: "Posts Per Page", name: "posts_per_page", widget: "number", default: 10 }
+
+  # ── Modular pages (the page-builder contract) ─────────────
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Show in Navigation", name: "show_in_menu", widget: "boolean", default: true }
+      - { label: "Menu Order", name: "menu_order", widget: "number", default: 2 }
+      - label: "Page Sections"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Badge", name: "badge", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "CTA Text", name: "cta_text", widget: "string", required: false }
+              - { label: "CTA Link", name: "cta_link", widget: "string", required: false }
+
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - label: "Image Position"
+                name: "image_position"
+                widget: "select"
+                options: ["left", "right"]
+                default: "right"
+
+          - label: "Cards Grid"
+            name: "cards"
+            widget: "object"
+            fields:
+              - { label: "Grid Title", name: "title", widget: "string", required: false }
+              - label: "Cards"
+                name: "children"
+                widget: "list"
+                types:
+                  - label: "Card"
+                    name: "card"
+                    widget: "object"
+                    fields:
+                      - { label: "Card Title", name: "title", widget: "string" }
+                      - { label: "Image", name: "image", widget: "image", required: false }
+                      - label: "Inner Blocks"
+                        name: "children"
+                        widget: "list"
+                        types:
+                          - label: "Text"
+                            name: "text"
+                            widget: "object"
+                            fields:
+                              - { label: "Content", name: "content", widget: "text" }
+                          - label: "Badge"
+                            name: "badge"
+                            widget: "object"
+                            fields:
+                              - { label: "Text", name: "text", widget: "string" }
+                              - label: "Style"
+                                name: "style"
+                                widget: "select"
+                                options: ["primary", "secondary", "accent"]
+                                default: "primary"
+                                required: false
+                          - label: "Button"
+                            name: "button"
+                            widget: "object"
+                            fields:
+                              - { label: "Text", name: "text", widget: "string" }
+                              - { label: "Link", name: "link", widget: "string" }
+                          - label: "Image"
+                            name: "image"
+                            widget: "object"
+                            fields:
+                              - { label: "Image", name: "src", widget: "image" }
+                              - { label: "Alt Text", name: "alt", widget: "string", required: false }
+
+          - label: "CTA Banner"
+            name: "cta_banner"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Text", name: "text", widget: "text", required: false }
+              - { label: "Button Text", name: "button_text", widget: "string" }
+              - { label: "Button Link", name: "button_link", widget: "string" }
+
+  # ── Blog (taxonomies arrive in the blog phase) ────────────
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }

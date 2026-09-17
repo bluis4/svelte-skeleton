@@ -1,4 +1,4 @@
-# Svelte Base Theme
+# Svelte Skeleton
 
 A modular, multi-theme SvelteKit starter kit designed for high-performance static sites. Built with DaisyUI and Sveltia CMS, this theme serves as the foundation for scalable client projects and commercial themes.
 

@@ -1,4 +1,4 @@
-<!-- src/routes/+page.svelte -->
+<!-- src/routes/[slug]/+page.svelte -->
 <script>
     import BlockRenderer from '$lib/components/BlockRenderer.svelte';
     let { data } = $props();

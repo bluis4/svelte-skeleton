@@ -1,11 +1,9 @@
+<!-- src/routes/+layout.svelte -->
 <script>
-	import favicon from '$lib/assets/favicon.svg';
-
-	let { children } = $props();
+    // We use the $lib alias to point directly to src/lib
+    import '$lib/assets/app.css';
+    
+    let { children } = $props();
 </script>
-
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
 
 {@render children()}
