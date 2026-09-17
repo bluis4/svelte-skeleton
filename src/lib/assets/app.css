@@ -1,3 +1,5 @@
 /* src/lib/assets/app.css */
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, luxury, emerald, pastel;
+}

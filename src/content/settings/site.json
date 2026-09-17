@@ -1,11 +1,11 @@
 {
-    "site_name": "Svelte",
-    "brand_highlight": "Skeleton",
-    "tagline": "Modular themes for the static web",
-    "cta_text": "Get Quote",
-    "cta_link": "/contact",
-    "theme_preset": "default",
-    "color_palette": "dark",
-    "blog_pagination": "infinite",
-    "posts_per_page": 10
+  "site_name": "Svelte",
+  "brand_highlight": "Skeleton",
+  "tagline": "Modular themes for the static web",
+  "cta_text": "Get Quote",
+  "cta_link": "/#",
+  "theme_preset": "default",
+  "color_palette": "dark",
+  "blog_pagination": "infinite",
+  "posts_per_page": 10
 }
