@@ -5,7 +5,7 @@ menu_order: 1
 sections:
   - type: hero
     badge: Enterprise-Grade Security & 24/7 Support
-    title: Reliable IT Infrastructure Built for Scaling Businesses
+    title: Reliable IT Infrastructure Built for Scaling Businesses in Bali
     description: We eliminate downtime, secure your sensitive cloud data, and provide instant managed IT support so you can focus on growing your core business.
     cta_text: Schedule Free Audit
     cta_link: /#
