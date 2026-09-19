@@ -8,7 +8,6 @@
 </script>
 
 <svelte:head>
-    <title>{data.site.site_name} {data.site.brand_highlight}</title>
     <meta property="og:site_name" content="{data.site.site_name} {data.site.brand_highlight}" />
     <meta property="og:locale" content="en_US" />
 </svelte:head>
