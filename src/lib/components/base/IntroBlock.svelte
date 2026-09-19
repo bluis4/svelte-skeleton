@@ -11,7 +11,7 @@
         </div>
         {#if block.image}
             <figure class="md:w-1/2 w-full">
-                <img src={block.image} alt={block.title ?? ''} class="rounded-3xl w-full object-cover" loading="lazy" />
+                <img src={block.image} alt={block.title ?? ''} width="1200" height="900" class="rounded-3xl w-full object-cover aspect-[4/3]" loading="lazy" />
             </figure>
         {/if}
     </div>
