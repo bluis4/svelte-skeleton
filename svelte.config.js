@@ -15,7 +15,7 @@ const config = {
             handleHttpError: ({ path, referrers }) => {
                 if (path.startsWith('/services/') || path === '/contact') {
                     console.warn(`Ignoring 404 for ${path} (linked from ${referrers.join(', ')})`);
-                    return 'ignore';
+                    return;
                 }
                 throw new Error(`404 ${path} (linked from ${referrers.join(', ')})`);
             }

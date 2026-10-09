@@ -70,11 +70,80 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Image", name: "image", widget: "image", required: false }
-              - label: "Image Position"
-                name: "image_position"
-                widget: "select"
-                options: ["left", "right"]
-                default: "right"
+              - label: "Layout"
+                name: "layout"
+                widget: "object"
+                typeKey: "mode"
+                default: { mode: "flex", direction: "row" }
+                types:
+                  - label: "Flexbox"
+                    name: "flex"
+                    fields:
+                      - label: "Desktop direction"
+                        name: "direction"
+                        widget: "select"
+                        options:
+                          - { label: "Text then image", value: "row" }
+                          - { label: "Image then text", value: "row-reverse" }
+                          - { label: "Stack vertically", value: "column" }
+                        default: "row"
+                      - label: "Gap"
+                        name: "gap"
+                        widget: "number"
+                        value_type: "float"
+                        min: 0
+                        max: 12
+                        step: 0.25
+                        default: 2.5
+                        after_input: "rem"
+                  - label: "Grid"
+                    name: "grid"
+                    fields:
+                      - label: "Columns"
+                        name: "columns"
+                        widget: "number"
+                        min: 1
+                        max: 4
+                        default: 2
+                      - label: "Rows"
+                        name: "rows"
+                        widget: "number"
+                        min: 1
+                        max: 4
+                        default: 1
+                      - label: "Gap"
+                        name: "gap"
+                        widget: "number"
+                        value_type: "float"
+                        min: 0
+                        max: 12
+                        step: 0.25
+                        default: 2.5
+                        after_input: "rem"
+                      - label: "Text column"
+                        name: "content_column"
+                        widget: "number"
+                        min: 1
+                        max: 4
+                        default: 1
+                      - label: "Text row"
+                        name: "content_row"
+                        widget: "number"
+                        min: 1
+                        max: 4
+                        default: 1
+                      - label: "Image column"
+                        name: "image_column"
+                        widget: "number"
+                        min: 1
+                        max: 4
+                        default: 2
+                      - label: "Image row"
+                        name: "image_row"
+                        widget: "number"
+                        min: 1
+                        max: 4
+                        default: 1
 
           - label: "Cards Grid"
             name: "cards"

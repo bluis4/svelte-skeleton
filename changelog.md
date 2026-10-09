@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-09-20
+### Added
+- `SmartImage` component (`base/`): reserves layout space via intrinsic `width`/`height` attributes and aspect-ratio utilities, shows a daisyUI skeleton placeholder, and fades the image in on load — Cumulative Layout Shift reduced from 0.712 to 0.
+- Build-time image loading strategy: `annotateLoading()` marks the first image in document order as `eager` with `fetchpriority="high"`; optional per-block `loading` override (eager/lazy) exposed in the CMS as an advanced field.
+- `SeoHead` single-emitter component (`base/`): per-page `<title>`, meta description with site-tagline fallback, canonical link, Open Graph and Twitter Card tags.
+- "SEO Description" field on the pages collection in the Sveltia configuration.
+- `prerender.origin` configured so canonical URLs carry the production origin in prerendered HTML.
+### Changed
+- Root layout head reduced to site-wide Open Graph tags (`og:site_name`, `og:locale`); all per-page head tags are now emitted solely by `SeoHead` (single-emitter rule: make duplication impossible, not handled).
+- CTA banner contrast: raw hue text token on a colored surface replaced with daisyUI's paired component/content tokens.
+
+## [0.5.1] - 2026-09-18
+### Added
+- Production deployment on Cloudflare Pages via Git integration (SvelteKit preset, `npm run build`, output `build`, `NODE_VERSION=22`); every push to `main` deploys automatically.
+### Fixed
+- Missing `front-matter` dependency in the package manifest, which broke CI builds with `ERR_MODULE_NOT_FOUND`.
 
 ## [0.5.0] - 2026-09-18
 ### Added

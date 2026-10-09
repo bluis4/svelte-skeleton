@@ -8,7 +8,7 @@
     <nav>
         <ul class="menu menu-horizontal">
             {#each menuItems as item}
-                <li><a href={item.slug}>{item.title}</a></li>
+                <li><a href={item.href}>{item.title}</a></li>
             {/each}
         </ul>
     </nav>

@@ -5,13 +5,18 @@ import { redirect } from '@sveltejs/kit';
 export const prerender = true;
 
 export function load({ params, url }) {
-    if (params.slug === 'home') redirect(308, '/');
-    return {
-        page: loadPage(params.slug),
-        canonical: url.origin + url.pathname
-    };
+  if (params.slug === 'home') redirect(308, '/');
+
+  const path = `/${params.slug}/`;
+
+  return {
+    page: loadPage(params.slug),
+    canonical: url.origin + path
+  };
 }
 
 export function entries() {
-    return getAllPages().map((p) => ({ slug: p.slug }));
+  return getAllPages()
+    .filter((p) => p.slug !== 'home')
+    .map((p) => ({ slug: p.slug }));
 }

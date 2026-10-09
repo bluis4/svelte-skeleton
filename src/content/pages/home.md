@@ -13,6 +13,9 @@ sections:
     title: Your Technology Partner, Not Just a Vendor
     text: For over a decade, our certified engineers have helped companies migrate to the cloud, harden their security posture, and keep their teams productive. We speak human, not just hexadecimal.
     image: https://picsum.photos/seed/team/900/700
+    layout:
+      mode: flex
+      direction: row
     image_position: right
   - type: cards
     title: Our IT Services
@@ -55,4 +58,17 @@ sections:
     headline: Ready to Eliminate Downtime?
     button_text: Schedule Free Audit
     button_link: /
+  - type: intro
+    title: tes
+    text: grid
+    image: ''
+    layout:
+      mode: grid
+      gap: 2.5
+      columns: 2
+      rows: 1
+      content_column: 1
+      content_row: 1
+      image_column: 2
+      image_row: 1
 ---

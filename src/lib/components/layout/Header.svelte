@@ -14,7 +14,7 @@
             <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52">
                 {#each menuItems as item}
-                    <li><a href={item.slug}>{item.title}</a></li>
+                    <li><a href={item.href}>{item.title}</a></li>
                 {/each}
             </ul>
         </div>
@@ -26,7 +26,7 @@
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1 font-medium">
             {#each menuItems as item}
-                <li><a href={item.slug}>{item.title}</a></li>
+                <li><a href={item.href}>{item.title}</a></li>
             {/each}
         </ul>
     </div>
