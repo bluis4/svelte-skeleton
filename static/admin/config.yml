@@ -47,6 +47,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
       - { label: "Show in Navigation", name: "show_in_menu", widget: "boolean", default: true }
       - { label: "Menu Order", name: "menu_order", widget: "number", default: 2 }
       - label: "Page Sections"
@@ -185,7 +186,30 @@ collections:
                             widget: "object"
                             fields:
                               - { label: "Text", name: "text", widget: "string" }
-                              - { label: "Link", name: "link", widget: "string" }
+                              - { label: "Link", name: "link", widget: "string", required: false }
+                              - label: "Variant"
+                                name: "variant"
+                                widget: "select"
+                                options: ["primary", "secondary", "accent", "info", "success", "warning", "error", "neutral", "ghost"]
+                                default: "primary"
+                              - label: "Size"
+                                name: "size"
+                                widget: "select"
+                                options: ["xs", "sm", "md", "lg"]
+                                default: "md"
+                              - label: "Modifiers"
+                                name: "modifiers"
+                                widget: "select"
+                                multiple: true
+                                options: ["outline", "link", "wide", "block"]
+                                required: false
+                              - label: "Shape"
+                                name: "shape"
+                                widget: "select"
+                                options: ["default", "circle", "square"]
+                                default: "default"
+                              - { label: "Disabled", name: "disabled", widget: "boolean", default: false, required: false }
+                              - { label: "Render as <button> tag", name: "is_button", widget: "boolean", default: false, required: false }
                           - label: "Image"
                             name: "image"
                             widget: "object"
@@ -201,6 +225,2583 @@ collections:
               - { label: "Text", name: "text", widget: "text", required: false }
               - { label: "Button Text", name: "button_text", widget: "string" }
               - { label: "Button Link", name: "button_link", widget: "string" }
+
+          - label: "Button"
+            name: "button"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Link", name: "link", widget: "string", required: false }
+              - label: "Variant"
+                name: "variant"
+                widget: "select"
+                options: ["primary", "secondary", "accent", "info", "success", "warning", "error", "neutral", "ghost"]
+                default: "primary"
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["xs", "sm", "md", "lg"]
+                default: "md"
+              - label: "Modifiers"
+                name: "modifiers"
+                widget: "select"
+                multiple: true
+                options: ["outline", "link", "wide", "block"]
+                required: false
+              - label: "Shape"
+                name: "shape"
+                widget: "select"
+                options: ["default", "circle", "square"]
+                default: "default"
+              - { label: "Disabled", name: "disabled", widget: "boolean", default: false, required: false }
+              - { label: "Render as <button> tag", name: "is_button", widget: "boolean", default: false, required: false }
+
+          - label: "Dropdown"
+            name: "dropdown"
+            widget: "object"
+            fields:
+              - { label: "Trigger label", name: "label", widget: "string" }
+              - label: "Position"
+                name: "position"
+                widget: "select"
+                options: ["start", "center", "end"]
+                default: "end"
+              - label: "Menu Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string", required: false }
+
+          - label: "FAB / Speed Dial"
+            name: "fab"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string" }
+              - { label: "Trigger text", name: "trigger", widget: "string", default: "IT" }
+              - label: "Actions"
+                name: "actions"
+                widget: "list"
+                fields:
+                  - { label: "Action label", name: "label", widget: "string" }
+                  - { label: "Button text", name: "text", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string", required: false }
+
+          - label: "Modal"
+            name: "modal"
+            widget: "object"
+            fields:
+              - { label: "Trigger", name: "trigger", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Close button label", name: "close_label", widget: "string", default: "Close" }
+
+          - label: "Swap"
+            name: "swap"
+            widget: "object"
+            fields:
+              - { label: "Text when active", name: "on_text", widget: "string" }
+              - { label: "Text when inactive", name: "off_text", widget: "string" }
+              - { label: "Accessible label", name: "accessible_label", widget: "string" }
+              - label: "Animation"
+                name: "style"
+                widget: "select"
+                options: ["none", "rotate", "flip"]
+                default: "rotate"
+
+          - label: "Theme Controller"
+            name: "theme_controller"
+            widget: "object"
+            fields:
+              - { label: "Legend", name: "label", widget: "string" }
+              - label: "Theme Options"
+                name: "options"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - label: "Theme value"
+                    name: "value"
+                    widget: "select"
+                    options: ["light", "dark", "luxury", "emerald", "pastel"]
+
+          - label: "Alert"
+            name: "alert"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Variant"
+                name: "variant"
+                widget: "select"
+                options: ["info", "success", "warning", "error"]
+                default: "info"
+              - { label: "Show Icon", name: "icon", widget: "boolean", default: true, required: false }
+
+          - label: "Loading"
+            name: "loading"
+            widget: "object"
+            fields:
+              - label: "Loading style"
+                name: "variant"
+                widget: "select"
+                options: ["spinner", "dots", "ring", "ball", "bars", "infinity"]
+                default: "spinner"
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["xs", "sm", "md", "lg", "xl"]
+                default: "md"
+              - { label: "Accessible label", name: "label", widget: "string", default: "Loading", required: false }
+              - { label: "Status text", name: "text", widget: "string", required: false }
+
+          - label: "Progress"
+            name: "progress"
+            widget: "object"
+            fields:
+              - { label: "Value (0-100)", name: "value", widget: "number", value_type: "int", min: 0, max: 100, default: 0 }
+              - { label: "Label", name: "label", widget: "string", required: false }
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options: ["neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                default: "primary"
+              - { label: "Show percentage", name: "show_value", widget: "boolean", default: true, required: false }
+
+          - label: "Radial Progress"
+            name: "radial_progress"
+            widget: "object"
+            fields:
+              - { label: "Value (0-100)", name: "value", widget: "number", value_type: "int", min: 0, max: 100, default: 0 }
+              - { label: "Label", name: "label", widget: "string", required: false }
+              - { label: "Size (CSS length)", name: "size", widget: "string", default: "6rem", required: false }
+              - { label: "Thickness (CSS length)", name: "thickness", widget: "string", default: "0.5rem", required: false }
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options: ["neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                default: "primary"
+
+          - label: "Skeleton"
+            name: "skeleton"
+            widget: "object"
+            fields:
+              - label: "Placeholder style"
+                name: "variant"
+                widget: "select"
+                options: ["card", "avatar", "text"]
+                default: "card"
+              - { label: "Accessible label", name: "label", widget: "string", default: "Loading content", required: false }
+
+          - label: "Toast"
+            name: "toast"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Message", name: "text", widget: "text" }
+              - label: "Variant"
+                name: "variant"
+                widget: "select"
+                options: ["info", "success", "warning", "error"]
+                default: "info"
+              - label: "Placement"
+                name: "placement"
+                widget: "select"
+                options: ["top-start", "top-center", "top-end", "middle-start", "middle-center", "middle-end", "bottom-start", "bottom-center", "bottom-end"]
+                default: "bottom-end"
+
+          - label: "Tooltip"
+            name: "tooltip"
+            widget: "object"
+            fields:
+              - { label: "Tooltip text", name: "tip", widget: "string" }
+              - { label: "Trigger label", name: "label", widget: "string", required: false }
+              - label: "Placement"
+                name: "placement"
+                widget: "select"
+                options: ["top", "bottom", "left", "right"]
+                default: "top"
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options: ["default", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                default: "default"
+
+          - label: "Docs Layout"
+            name: "docs_layout"
+            widget: "object"
+            fields:
+              - label: "Sidebar Categories"
+                name: "sidebar"
+                widget: "list"
+                fields:
+                  - { label: "Category", name: "label", widget: "string" }
+                  - { label: "Anchor", name: "anchor", widget: "string" }
+                  - label: "Component Links"
+                    name: "links"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Component", name: "label", widget: "string" }
+                      - { label: "Anchor", name: "anchor", widget: "string" }
+              - label: "Child Blocks"
+                name: "children"
+                widget: "list"
+                types:
+                  - label: "Heading"
+                    name: "heading"
+                    widget: "object"
+                    fields:
+                      - { label: "Heading", name: "title", widget: "string" }
+                      - { label: "Anchor", name: "anchor", widget: "string" }
+                  - label: "Divider"
+                    name: "divider"
+                    widget: "object"
+                    fields: []
+                  - label: "Text"
+                    name: "text"
+                    widget: "object"
+                    fields:
+                      - { label: "Content", name: "content", widget: "text" }
+                  - label: "Button"
+                    name: "button"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "string" }
+                      - { label: "Link", name: "link", widget: "string", required: false }
+                      - label: "Variant"
+                        name: "variant"
+                        widget: "select"
+                        options: ["primary", "secondary", "accent", "info", "success", "warning", "error", "neutral", "ghost"]
+                        default: "primary"
+                      - label: "Size"
+                        name: "size"
+                        widget: "select"
+                        options: ["xs", "sm", "md", "lg"]
+                        default: "md"
+                      - label: "Modifiers"
+                        name: "modifiers"
+                        widget: "select"
+                        multiple: true
+                        options: ["outline", "link", "wide", "block"]
+                        required: false
+                      - label: "Shape"
+                        name: "shape"
+                        widget: "select"
+                        options: ["default", "circle", "square"]
+                        default: "default"
+                      - { label: "Disabled", name: "disabled", widget: "boolean", default: false, required: false }
+                      - { label: "Render as <button> tag", name: "is_button", widget: "boolean", default: false, required: false }
+                  - label: "Dropdown"
+                    name: "dropdown"
+                    widget: "object"
+                    fields:
+                      - { label: "Trigger label", name: "label", widget: "string" }
+                      - label: "Position"
+                        name: "position"
+                        widget: "select"
+                        options: ["start", "center", "end"]
+                        default: "end"
+                      - label: "Menu Items"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Link", name: "href", widget: "string", required: false }
+                  - label: "FAB / Speed Dial"
+                    name: "fab"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string" }
+                      - { label: "Trigger text", name: "trigger", widget: "string", default: "IT" }
+                      - label: "Actions"
+                        name: "actions"
+                        widget: "list"
+                        fields:
+                          - { label: "Action label", name: "label", widget: "string" }
+                          - { label: "Button text", name: "text", widget: "string" }
+                          - { label: "Link", name: "href", widget: "string", required: false }
+                  - label: "Modal"
+                    name: "modal"
+                    widget: "object"
+                    fields:
+                      - { label: "Trigger", name: "trigger", widget: "string" }
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Content", name: "content", widget: "text" }
+                      - { label: "Close button label", name: "close_label", widget: "string", default: "Close" }
+                  - label: "Swap"
+                    name: "swap"
+                    widget: "object"
+                    fields:
+                      - { label: "Text when active", name: "on_text", widget: "string" }
+                      - { label: "Text when inactive", name: "off_text", widget: "string" }
+                      - { label: "Accessible label", name: "accessible_label", widget: "string" }
+                      - label: "Animation"
+                        name: "style"
+                        widget: "select"
+                        options: ["none", "rotate", "flip"]
+                        default: "rotate"
+                  - label: "Theme Controller"
+                    name: "theme_controller"
+                    widget: "object"
+                    fields:
+                      - { label: "Legend", name: "label", widget: "string" }
+                      - label: "Theme Options"
+                        name: "options"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - label: "Theme value"
+                            name: "value"
+                            widget: "select"
+                            options: ["light", "dark", "luxury", "emerald", "pastel"]
+                  - label: "Alert"
+                    name: "alert"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", required: false }
+                      - { label: "Text", name: "text", widget: "text" }
+                      - label: "Variant"
+                        name: "variant"
+                        widget: "select"
+                        options: ["info", "success", "warning", "error"]
+                        default: "info"
+                      - { label: "Show Icon", name: "icon", widget: "boolean", default: true, required: false }
+                  - label: "Loading"
+                    name: "loading"
+                    widget: "object"
+                    fields:
+                      - label: "Loading style"
+                        name: "variant"
+                        widget: "select"
+                        options: ["spinner", "dots", "ring", "ball", "bars", "infinity"]
+                        default: "spinner"
+                      - label: "Size"
+                        name: "size"
+                        widget: "select"
+                        options: ["xs", "sm", "md", "lg", "xl"]
+                        default: "md"
+                      - { label: "Accessible label", name: "label", widget: "string", default: "Loading", required: false }
+                      - { label: "Status text", name: "text", widget: "string", required: false }
+                  - label: "Progress"
+                    name: "progress"
+                    widget: "object"
+                    fields:
+                      - { label: "Value (0-100)", name: "value", widget: "number", value_type: "int", min: 0, max: 100, default: 0 }
+                      - { label: "Label", name: "label", widget: "string", required: false }
+                      - label: "Color"
+                        name: "color"
+                        widget: "select"
+                        options: ["neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                        default: "primary"
+                      - { label: "Show percentage", name: "show_value", widget: "boolean", default: true, required: false }
+                  - label: "Radial Progress"
+                    name: "radial_progress"
+                    widget: "object"
+                    fields:
+                      - { label: "Value (0-100)", name: "value", widget: "number", value_type: "int", min: 0, max: 100, default: 0 }
+                      - { label: "Label", name: "label", widget: "string", required: false }
+                      - { label: "Size (CSS length)", name: "size", widget: "string", default: "6rem", required: false }
+                      - { label: "Thickness (CSS length)", name: "thickness", widget: "string", default: "0.5rem", required: false }
+                      - label: "Color"
+                        name: "color"
+                        widget: "select"
+                        options: ["neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                        default: "primary"
+                  - label: "Skeleton"
+                    name: "skeleton"
+                    widget: "object"
+                    fields:
+                      - label: "Placeholder style"
+                        name: "variant"
+                        widget: "select"
+                        options: ["card", "avatar", "text"]
+                        default: "card"
+                      - { label: "Accessible label", name: "label", widget: "string", default: "Loading content", required: false }
+                  - label: "Toast"
+                    name: "toast"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", required: false }
+                      - { label: "Message", name: "text", widget: "text" }
+                      - label: "Variant"
+                        name: "variant"
+                        widget: "select"
+                        options: ["info", "success", "warning", "error"]
+                        default: "info"
+                      - label: "Placement"
+                        name: "placement"
+                        widget: "select"
+                        options: ["top-start", "top-center", "top-end", "middle-start", "middle-center", "middle-end", "bottom-start", "bottom-center", "bottom-end"]
+                        default: "bottom-end"
+                  - label: "Tooltip"
+                    name: "tooltip"
+                    widget: "object"
+                    fields:
+                      - { label: "Tooltip text", name: "tip", widget: "string" }
+                      - { label: "Trigger label", name: "label", widget: "string", required: false }
+                      - label: "Placement"
+                        name: "placement"
+                        widget: "select"
+                        options: ["top", "bottom", "left", "right"]
+                        default: "top"
+                      - label: "Color"
+                        name: "color"
+                        widget: "select"
+                        options: ["default", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                        default: "default"
+                  - label: Hero
+                    name: hero
+                    widget: object
+                    fields:
+                      - label: Badge
+                        name: badge
+                        widget: string
+                        required: false
+                      - label: Title
+                        name: title
+                        widget: string
+                        required: true
+                      - label: Description
+                        name: description
+                        widget: text
+                      - label: CTA Text
+                        name: cta_text
+                        widget: string
+                        required: false
+                      - label: CTA Link
+                        name: cta_link
+                        widget: string
+                        required: false
+                  - label: Calendar
+                    name: calendar
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: true
+                      - label: Date
+                        name: value
+                        widget: datetime
+                        format: YYYY-MM-DD
+                        date_format: YYYY-MM-DD
+                        time_format: false
+                        required: false
+                      - label: Field name
+                        name: name
+                        widget: string
+                        required: false
+                  - label: Checkbox
+                    name: checkbox
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: true
+                      - label: Checked
+                        name: checked
+                        widget: boolean
+                        default: false
+                        required: false
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - primary
+                          - secondary
+                          - accent
+                          - success
+                          - warning
+                          - error
+                        default: primary
+                      - label: Disabled
+                        name: disabled
+                        widget: boolean
+                        default: false
+                        required: false
+                  - label: Fieldset
+                    name: fieldset
+                    widget: object
+                    fields:
+                      - label: Legend
+                        name: legend
+                        widget: string
+                        required: true
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Placeholder
+                        name: placeholder
+                        widget: string
+                        required: false
+                      - label: Value
+                        name: value
+                        widget: string
+                        required: false
+                      - label: Description
+                        name: description
+                        widget: text
+                        required: false
+                  - label: File Input
+                    name: file_input
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Accepted file types
+                        name: accept
+                        widget: string
+                        required: false
+                      - label: Allow multiple files
+                        name: multiple
+                        widget: boolean
+                        default: false
+                        required: false
+                      - label: Size
+                        name: size
+                        widget: select
+                        options:
+                          - xs
+                          - sm
+                          - md
+                          - lg
+                        default: md
+                  - label: Filter
+                    name: filter
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Options
+                        name: options
+                        widget: list
+                        field:
+                          label: Option
+                          name: item
+                          widget: string
+                      - label: Selected option
+                        name: selected
+                        widget: string
+                        required: false
+                  - label: Label
+                    name: label
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: true
+                      - label: Hint
+                        name: hint
+                        widget: string
+                        required: false
+                      - label: Required
+                        name: required
+                        widget: boolean
+                        default: false
+                        required: false
+                  - label: Radio
+                    name: radio
+                    widget: object
+                    fields:
+                      - label: Legend
+                        name: label
+                        widget: string
+                        required: true
+                      - label: Group name
+                        name: name
+                        widget: string
+                        required: false
+                      - label: Options
+                        name: options
+                        widget: list
+                        field:
+                          label: Option
+                          name: item
+                          widget: string
+                      - label: Selected option
+                        name: selected
+                        widget: string
+                        required: false
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - primary
+                          - secondary
+                          - accent
+                          - success
+                          - warning
+                          - error
+                        default: primary
+                  - label: Range
+                    name: range
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Minimum
+                        name: min
+                        widget: number
+                        value_type: int
+                        min: 0
+                        max: 100
+                        default: 0
+                      - label: Maximum
+                        name: max
+                        widget: number
+                        value_type: int
+                        min: 1
+                        max: 100
+                        default: 100
+                      - label: Value
+                        name: value
+                        widget: number
+                        value_type: int
+                        min: 0
+                        max: 100
+                        default: 50
+                      - label: Step
+                        name: step
+                        widget: number
+                        value_type: int
+                        min: 1
+                        max: 100
+                        default: 1
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - primary
+                          - secondary
+                          - accent
+                          - success
+                          - warning
+                          - error
+                        default: primary
+                  - label: Rating
+                    name: rating
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Value
+                        name: value
+                        widget: number
+                        value_type: int
+                        min: 0
+                        max: 10
+                        default: 4
+                      - label: Maximum stars
+                        name: max
+                        widget: number
+                        value_type: int
+                        min: 1
+                        max: 10
+                        default: 5
+                      - label: Allow zero rating
+                        name: half
+                        widget: boolean
+                        default: false
+                        required: false
+                      - label: Size
+                        name: size
+                        widget: select
+                        options:
+                          - xs
+                          - sm
+                          - md
+                          - lg
+                        default: md
+                  - label: Select
+                    name: select
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Options
+                        name: options
+                        widget: list
+                        field:
+                          label: Option
+                          name: item
+                          widget: string
+                      - label: Selected option
+                        name: value
+                        widget: string
+                        required: false
+                      - label: Size
+                        name: size
+                        widget: select
+                        options:
+                          - xs
+                          - sm
+                          - md
+                          - lg
+                        default: md
+                  - label: Input Field
+                    name: input_field
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Input type
+                        name: input_type
+                        widget: select
+                        options:
+                          - text
+                          - email
+                          - password
+                          - search
+                          - tel
+                          - url
+                        default: text
+                      - label: Placeholder
+                        name: placeholder
+                        widget: string
+                        required: false
+                      - label: Value
+                        name: value
+                        widget: string
+                        required: false
+                      - label: Size
+                        name: size
+                        widget: select
+                        options:
+                          - xs
+                          - sm
+                          - md
+                          - lg
+                        default: md
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - default
+                          - primary
+                          - secondary
+                          - accent
+                          - success
+                          - warning
+                          - error
+                        default: default
+                      - label: Required
+                        name: required
+                        widget: boolean
+                        default: false
+                        required: false
+                  - label: Textarea
+                    name: textarea
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Placeholder
+                        name: placeholder
+                        widget: string
+                        required: false
+                      - label: Value
+                        name: value
+                        widget: text
+                        required: false
+                      - label: Rows
+                        name: rows
+                        widget: number
+                        value_type: int
+                        min: 2
+                        max: 12
+                        default: 4
+                      - label: Size
+                        name: size
+                        widget: select
+                        options:
+                          - xs
+                          - sm
+                          - md
+                          - lg
+                        default: md
+                  - label: Toggle
+                    name: toggle
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: true
+                      - label: Checked
+                        name: checked
+                        widget: boolean
+                        default: false
+                        required: false
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - primary
+                          - secondary
+                          - accent
+                          - success
+                          - warning
+                          - error
+                        default: primary
+                      - label: Disabled
+                        name: disabled
+                        widget: boolean
+                        default: false
+                        required: false
+                  - label: Validator
+                    name: validator
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Initial value
+                        name: value
+                        widget: string
+                        required: false
+                      - label: Validation pattern
+                        name: pattern
+                        widget: string
+                        required: false
+                      - label: Hint
+                        name: hint
+                        widget: string
+                        required: false
+                  - label: OTP
+                    name: otp
+                    widget: object
+                    fields:
+                      - label: Label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Number of digits
+                        name: digits
+                        widget: number
+                        value_type: int
+                        min: 4
+                        max: 8
+                        default: 6
+                  - label: Drawer Sidebar
+                    name: drawer_sidebar
+                    widget: object
+                    fields:
+                      - label: Button label
+                        name: label
+                        widget: string
+                        required: false
+                      - label: Sidebar title
+                        name: title
+                        widget: string
+                        required: false
+                      - label: Content
+                        name: content
+                        widget: text
+                        required: false
+                      - label: Side
+                        name: side
+                        widget: select
+                        options:
+                          - start
+                          - end
+                        default: start
+                      - label: Links
+                        name: links
+                        widget: list
+                        fields:
+                          - label: Link label
+                            name: label
+                            widget: string
+                            required: true
+                          - label: URL
+                            name: href
+                            widget: string
+                            required: true
+                  - label: Footer
+                    name: footer
+                    widget: object
+                    fields:
+                      - label: Brand
+                        name: brand
+                        widget: string
+                        required: false
+                      - label: Description
+                        name: description
+                        widget: text
+                        required: false
+                      - label: Copyright
+                        name: copyright
+                        widget: string
+                        required: false
+                      - label: Columns
+                        name: columns
+                        widget: list
+                        fields:
+                          - label: Column title
+                            name: title
+                            widget: string
+                            required: true
+                          - label: Links
+                            name: links
+                            widget: list
+                            fields:
+                              - label: Link label
+                                name: label
+                                widget: string
+                                required: true
+                              - label: URL
+                                name: href
+                                widget: string
+                                required: true
+                  - label: Indicator
+                    name: indicator
+                    widget: object
+                    fields:
+                      - label: Content
+                        name: content
+                        widget: string
+                        required: false
+                      - label: Indicator text
+                        name: indicator
+                        widget: string
+                        required: false
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - primary
+                          - secondary
+                          - accent
+                          - info
+                          - success
+                          - warning
+                          - error
+                        default: primary
+                      - label: Position
+                        name: position
+                        widget: select
+                        options:
+                          - top-start
+                          - top-center
+                          - top-end
+                          - middle-start
+                          - middle-center
+                          - middle-end
+                          - bottom-start
+                          - bottom-center
+                          - bottom-end
+                        default: top-end
+                  - label: Join
+                    name: join
+                    widget: object
+                    fields:
+                      - label: Items
+                        name: items
+                        widget: list
+                        field:
+                          label: Item
+                          name: item
+                          widget: string
+                      - label: Direction
+                        name: direction
+                        widget: select
+                        options:
+                          - horizontal
+                          - vertical
+                        default: horizontal
+                      - label: Item style
+                        name: style
+                        widget: select
+                        options:
+                          - button
+                          - input
+                          - badge
+                        default: button
+                  - label: Mask
+                    name: mask
+                    widget: object
+                    fields:
+                      - label: Shape
+                        name: shape
+                        widget: select
+                        options:
+                          - circle
+                          - squircle
+                          - hexagon
+                          - triangle
+                          - heart
+                          - star
+                        default: squircle
+                      - label: Text
+                        name: text
+                        widget: string
+                        required: false
+                      - label: Color
+                        name: color
+                        widget: select
+                        options:
+                          - primary
+                          - secondary
+                          - accent
+                          - neutral
+                        default: primary
+                  - label: Stack
+                    name: stack
+                    widget: object
+                    fields:
+                      - label: Items
+                        name: items
+                        widget: list
+                        field:
+                          label: Item
+                          name: item
+                          widget: string
+                      - label: Alignment
+                        name: alignment
+                        widget: select
+                        options:
+                          - bottom
+                          - top
+                          - start
+                          - end
+                        default: bottom
+                  - label: Browser
+                    name: mockup_browser
+                    widget: object
+                    fields:
+                      - label: Address
+                        name: url
+                        widget: string
+                        required: false
+                      - label: Content
+                        name: content
+                        widget: text
+                        required: false
+                  - label: Code
+                    name: mockup_code
+                    widget: object
+                    fields:
+                      - label: First line prefix
+                        name: prefix
+                        widget: string
+                        required: false
+                      - label: Code lines
+                        name: lines
+                        widget: list
+                        field:
+                          label: Line
+                          name: item
+                          widget: string
+                  - label: Phone
+                    name: mockup_phone
+                    widget: object
+                    fields:
+                      - label: Screen content
+                        name: content
+                        widget: text
+                        required: false
+                      - label: Screen theme
+                        name: theme
+                        widget: select
+                        options:
+                          - dark
+                          - light
+                          - primary
+                        default: dark
+                  - label: Window
+                    name: mockup_window
+                    widget: object
+                    fields:
+                      - label: Window title
+                        name: title
+                        widget: string
+                        required: false
+                      - label: Content
+                        name: content
+                        widget: text
+                        required: false
+                  - label: "Breadcrumbs"
+                    name: "breadcrumb"
+                    widget: "object"
+                    fields:
+                      - label: "Links"
+                        name: "links"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Link", name: "href", widget: "string" }
+                  - label: "Table"
+                    name: "table"
+                    widget: "object"
+                    fields:
+                      - label: "Headers"
+                        name: "headers"
+                        widget: "list"
+                        field: { label: "Header", name: "header", widget: "string" }
+                      - label: "Rows"
+                        name: "rows"
+                        widget: "list"
+                        fields:
+                          - { label: "Service", name: "service", widget: "string" }
+                          - { label: "Status", name: "status", widget: "string" }
+                          - { label: "SLA", name: "sla", widget: "string" }
+                      - { label: "Zebra stripes", name: "zebra", widget: "boolean", default: true, required: false }
+                      - { label: "Pin header and footer rows", name: "pin_rows", widget: "boolean", default: false, required: false }
+                  - label: "Accordion"
+                    name: "accordion"
+                    widget: "object"
+                    fields:
+                      - label: "Accordion Items"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Content", name: "content", widget: "text" }
+                  - label: "Avatar"
+                    name: "avatar"
+                    widget: "object"
+                    fields:
+                      - { label: "Name", name: "name", widget: "string", required: false }
+                      - { label: "Initials", name: "initials", widget: "string", required: false }
+                      - { label: "Image", name: "image", widget: "image", required: false }
+                      - label: "Size"
+                        name: "size"
+                        widget: "select"
+                        options: ["xs", "sm", "md", "lg"]
+                        default: "md"
+                      - label: "Presence"
+                        name: "status"
+                        widget: "select"
+                        options: ["none", "online", "offline"]
+                        default: "none"
+                  - label: "Aura"
+                    name: "aura"
+                    widget: "object"
+                    fields:
+                      - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Content", name: "content", widget: "text" }
+                      - label: "Aura style"
+                        name: "style"
+                        widget: "select"
+                        options: ["default", "dual", "rainbow", "holo", "gold", "silver", "glow"]
+                        default: "rainbow"
+                  - label: "Badge"
+                    name: "badge"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "string" }
+                      - label: "Style"
+                        name: "style"
+                        widget: "select"
+                        options: ["primary", "secondary", "accent"]
+                        default: "primary"
+                  - label: "Card"
+                    name: "card"
+                    widget: "object"
+                    fields:
+                      - { label: "Card Title", name: "title", widget: "string" }
+                      - { label: "Image", name: "image", widget: "image", required: false }
+                      - label: "Inner Blocks"
+                        name: "children"
+                        widget: "list"
+                        types:
+                          - label: "Text"
+                            name: "text"
+                            widget: "object"
+                            fields:
+                              - { label: "Content", name: "content", widget: "text" }
+                          - label: "Badge"
+                            name: "badge"
+                            widget: "object"
+                            fields:
+                              - { label: "Text", name: "text", widget: "string" }
+                              - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary", "accent"], default: "primary" }
+                  - label: "Carousel"
+                    name: "carousel"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - label: "Slides"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Content", name: "content", widget: "text" }
+                  - label: "Chat Bubble"
+                    name: "chat_bubble"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - label: "Messages"
+                        name: "messages"
+                        widget: "list"
+                        fields:
+                          - { label: "Speaker", name: "speaker", widget: "string" }
+                          - { label: "Message", name: "message", widget: "text" }
+                          - label: "Placement"
+                            name: "placement"
+                            widget: "select"
+                            options: ["start", "end"]
+                            default: "start"
+                          - { label: "Time", name: "time", widget: "string", required: false }
+                          - { label: "Footer", name: "footer", widget: "string", required: false }
+                  - label: "Collapse"
+                    name: "collapse"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Content", name: "content", widget: "text" }
+                      - label: "Icon"
+                        name: "icon"
+                        widget: "select"
+                        options: ["arrow", "plus", "none"]
+                        default: "arrow"
+                  - label: "Countdown"
+                    name: "countdown"
+                    widget: "object"
+                    fields:
+                      - { label: "Value", name: "value", widget: "number", value_type: "int", min: 0, max: 999 }
+                      - { label: "Title", name: "title", widget: "string", required: false }
+                      - { label: "Unit", name: "unit", widget: "string", default: "minutes" }
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                  - label: "Diff"
+                    name: "diff"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - { label: "Before label", name: "before_label", widget: "string", default: "Before" }
+                      - { label: "Before content", name: "before", widget: "text" }
+                      - { label: "After label", name: "after_label", widget: "string", default: "After" }
+                      - { label: "After content", name: "after", widget: "text" }
+                  - label: "Hover 3D Card"
+                    name: "hover_3d_card"
+                    widget: "object"
+                    fields:
+                      - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Content", name: "content", widget: "text" }
+                      - { label: "Image", name: "image", widget: "image", required: false }
+                  - label: "Hover Gallery"
+                    name: "hover_gallery"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - label: "Images"
+                        name: "images"
+                        widget: "list"
+                        fields:
+                          - { label: "Image", name: "src", widget: "image" }
+                          - { label: "Alternative text", name: "alt", widget: "string", required: false }
+                  - label: "Kbd"
+                    name: "kbd"
+                    widget: "object"
+                    fields:
+                      - { label: "Instruction", name: "instruction", widget: "string", required: false }
+                      - label: "Keys"
+                        name: "keys"
+                        widget: "list"
+                        field: { label: "Key", name: "key", widget: "string" }
+                  - label: "List"
+                    name: "list"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", required: false }
+                      - label: "Rows"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Description", name: "description", widget: "string", required: false }
+                          - { label: "Status", name: "status", widget: "string", required: false }
+                  - label: "Stat"
+                    name: "stat"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Value", name: "value", widget: "string" }
+                      - { label: "Description", name: "description", widget: "string", required: false }
+                      - { label: "Icon or emoji", name: "icon", widget: "string", required: false }
+                  - label: "Status"
+                    name: "status"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "string" }
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - label: "Color"
+                        name: "color"
+                        widget: "select"
+                        options: ["neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                        default: "success"
+                      - label: "Size"
+                        name: "size"
+                        widget: "select"
+                        options: ["xs", "sm", "md", "lg", "xl"]
+                        default: "md"
+                  - label: "Text Rotate"
+                    name: "text_rotate"
+                    widget: "object"
+                    fields:
+                      - { label: "Prefix", name: "prefix", widget: "string", required: false }
+                      - label: "Rotating words (up to 6)"
+                        name: "items"
+                        widget: "list"
+                        max: 6
+                        field: { label: "Word", name: "item", widget: "string" }
+                      - { label: "Suffix", name: "suffix", widget: "string", required: false }
+                      - { label: "Duration (milliseconds)", name: "duration", widget: "number", value_type: "int", default: 10000 }
+                  - label: "Timeline"
+                    name: "timeline"
+                    widget: "object"
+                    fields:
+                      - label: "Orientation"
+                        name: "orientation"
+                        widget: "select"
+                        options: ["vertical", "horizontal"]
+                        default: "vertical"
+                      - label: "Events"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Date or time", name: "date", widget: "string" }
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Description", name: "description", widget: "text" }
+          - label: "Accordion"
+            name: "accordion"
+            widget: "object"
+            fields:
+              - label: "Accordion Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Content", name: "content", widget: "text" }
+          - label: "Avatar"
+            name: "avatar"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string", required: false }
+              - { label: "Initials", name: "initials", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["xs", "sm", "md", "lg"]
+                default: "md"
+              - label: "Presence"
+                name: "status"
+                widget: "select"
+                options: ["none", "online", "offline"]
+                default: "none"
+          - label: "Aura"
+            name: "aura"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
+              - label: "Aura style"
+                name: "style"
+                widget: "select"
+                options: ["default", "dual", "rainbow", "holo", "gold", "silver", "glow"]
+                default: "rainbow"
+          - label: "Badge"
+            name: "badge"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - label: "Style"
+                name: "style"
+                widget: "select"
+                options: ["primary", "secondary", "accent"]
+                default: "primary"
+          - label: "Card"
+            name: "card"
+            widget: "object"
+            fields:
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - label: "Inner Blocks"
+                name: "children"
+                widget: "list"
+                types:
+                  - label: "Text"
+                    name: "text"
+                    widget: "object"
+                    fields:
+                      - { label: "Content", name: "content", widget: "text" }
+                  - label: "Badge"
+                    name: "badge"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary", "accent"], default: "primary" }
+          - label: "Carousel"
+            name: "carousel"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - label: "Slides"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Content", name: "content", widget: "text" }
+          - label: "Chat Bubble"
+            name: "chat_bubble"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - label: "Messages"
+                name: "messages"
+                widget: "list"
+                fields:
+                  - { label: "Speaker", name: "speaker", widget: "string" }
+                  - { label: "Message", name: "message", widget: "text" }
+                  - label: "Placement"
+                    name: "placement"
+                    widget: "select"
+                    options: ["start", "end"]
+                    default: "start"
+                  - { label: "Time", name: "time", widget: "string", required: false }
+                  - { label: "Footer", name: "footer", widget: "string", required: false }
+          - label: "Collapse"
+            name: "collapse"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["arrow", "plus", "none"]
+                default: "arrow"
+          - label: "Countdown"
+            name: "countdown"
+            widget: "object"
+            fields:
+              - { label: "Value", name: "value", widget: "number", value_type: "int", min: 0, max: 999 }
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Unit", name: "unit", widget: "string", default: "minutes" }
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+          - label: "Diff"
+            name: "diff"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - { label: "Before label", name: "before_label", widget: "string", default: "Before" }
+              - { label: "Before content", name: "before", widget: "text" }
+              - { label: "After label", name: "after_label", widget: "string", default: "After" }
+              - { label: "After content", name: "after", widget: "text" }
+          - label: "Hover 3D Card"
+            name: "hover_3d_card"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+          - label: "Hover Gallery"
+            name: "hover_gallery"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alternative text", name: "alt", widget: "string", required: false }
+          - label: "Kbd"
+            name: "kbd"
+            widget: "object"
+            fields:
+              - { label: "Instruction", name: "instruction", widget: "string", required: false }
+              - label: "Keys"
+                name: "keys"
+                widget: "list"
+                field: { label: "Key", name: "key", widget: "string" }
+          - label: "List"
+            name: "list"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - label: "Rows"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "string", required: false }
+                  - { label: "Status", name: "status", widget: "string", required: false }
+          - label: "Status"
+            name: "status"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options: ["neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                default: "success"
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["xs", "sm", "md", "lg", "xl"]
+                default: "md"
+          - label: "Text Rotate"
+            name: "text_rotate"
+            widget: "object"
+            fields:
+              - { label: "Prefix", name: "prefix", widget: "string", required: false }
+              - label: "Rotating words (up to 6)"
+                name: "items"
+                widget: "list"
+                max: 6
+                field: { label: "Word", name: "item", widget: "string" }
+              - { label: "Suffix", name: "suffix", widget: "string", required: false }
+              - { label: "Duration (milliseconds)", name: "duration", widget: "number", value_type: "int", default: 10000 }
+          - label: "Timeline"
+            name: "timeline"
+            widget: "object"
+            fields:
+              - label: "Orientation"
+                name: "orientation"
+                widget: "select"
+                options: ["vertical", "horizontal"]
+                default: "vertical"
+              - label: "Events"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Date or time", name: "date", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Dock"
+                    name: "dock"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - label: "Size"
+                        name: "size"
+                        widget: "select"
+                        options: ["xs", "sm", "md", "lg", "xl"]
+                        default: "md"
+                      - label: "Navigation items"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Link", name: "href", widget: "string" }
+                          - { label: "Icon or short text", name: "icon", widget: "string", required: false }
+                          - { label: "Active item", name: "active", widget: "boolean", default: false, required: false }
+                  - label: "Link"
+                    name: "link"
+                    widget: "object"
+                    fields:
+                      - { label: "Context", name: "context", widget: "string", required: false }
+                      - { label: "Link text", name: "label", widget: "string" }
+                      - { label: "Link URL", name: "href", widget: "string" }
+                      - { label: "Trailing text", name: "suffix", widget: "string", required: false }
+                      - label: "Color"
+                        name: "color"
+                        widget: "select"
+                        options: ["default", "neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                        default: "default"
+                      - { label: "Underline on hover only", name: "hover_only", widget: "boolean", default: false, required: false }
+                  - label: "Megamenu"
+                    name: "megamenu"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - label: "Menu groups"
+                        name: "groups"
+                        widget: "list"
+                        max: 10
+                        fields:
+                          - { label: "Group label", name: "label", widget: "string" }
+                          - { label: "Description", name: "description", widget: "text", required: false }
+                          - label: "Links"
+                            name: "links"
+                            widget: "list"
+                            fields:
+                              - { label: "Link label", name: "label", widget: "string" }
+                              - { label: "URL", name: "href", widget: "string" }
+                  - label: "Menu"
+                    name: "menu"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - { label: "Title", name: "title", widget: "string", required: false }
+                      - label: "Orientation"
+                        name: "orientation"
+                        widget: "select"
+                        options: ["vertical", "horizontal"]
+                        default: "vertical"
+                      - label: "Size"
+                        name: "size"
+                        widget: "select"
+                        options: ["xs", "sm", "md", "lg", "xl"]
+                        default: "md"
+                      - label: "Menu items"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Link", name: "href", widget: "string", required: false }
+                          - { label: "Active item", name: "active", widget: "boolean", default: false, required: false }
+                          - label: "Submenu items"
+                            name: "children"
+                            widget: "list"
+                            required: false
+                            fields:
+                              - { label: "Label", name: "label", widget: "string" }
+                              - { label: "Link", name: "href", widget: "string", required: false }
+                  - label: "Navbar"
+                    name: "navbar"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - { label: "Brand", name: "brand", widget: "string" }
+                      - { label: "Brand link", name: "brand_href", widget: "string", required: false }
+                      - label: "Navigation links"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Link", name: "href", widget: "string" }
+                          - { label: "Current page", name: "active", widget: "boolean", default: false, required: false }
+                      - { label: "Call to action", name: "cta_label", widget: "string", required: false }
+                      - { label: "Call to action link", name: "cta_href", widget: "string", required: false }
+                  - label: "Pagination"
+                    name: "pagination"
+                    widget: "object"
+                    fields:
+                      - { label: "Accessible label", name: "label", widget: "string", required: false }
+                      - { label: "Current page index (zero based)", name: "current", widget: "number", value_type: "int", default: 0 }
+                      - { label: "Previous page link", name: "previous_href", widget: "string", required: false }
+                      - { label: "Next page link", name: "next_href", widget: "string", required: false }
+                      - label: "Pages"
+                        name: "pages"
+                        widget: "list"
+                        fields:
+                          - { label: "Page label", name: "label", widget: "string" }
+                          - { label: "Page link", name: "href", widget: "string" }
+                  - label: "Steps"
+                    name: "steps"
+                    widget: "object"
+                    fields:
+                      - label: "Orientation"
+                        name: "orientation"
+                        widget: "select"
+                        options: ["horizontal", "vertical"]
+                        default: "horizontal"
+                      - { label: "Current step index (zero based)", name: "current", widget: "number", value_type: "int", default: 0 }
+                      - label: "Steps"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Step label", name: "label", widget: "string" }
+                          - { label: "Description", name: "description", widget: "string", required: false }
+                  - label: "Tabs"
+                    name: "tabs"
+                    widget: "object"
+                    fields:
+                      - label: "Style"
+                        name: "style"
+                        widget: "select"
+                        options: ["boxed", "lifted"]
+                        default: "boxed"
+                      - label: "Tabs"
+                        name: "tabs"
+                        widget: "list"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Content", name: "content", widget: "text" }
+
+          - label: "Dock"
+            name: "dock"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["xs", "sm", "md", "lg", "xl"]
+                default: "md"
+              - label: "Navigation items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+                  - { label: "Icon or short text", name: "icon", widget: "string", required: false }
+                  - { label: "Active item", name: "active", widget: "boolean", default: false, required: false }
+          - label: "Link"
+            name: "link"
+            widget: "object"
+            fields:
+              - { label: "Context", name: "context", widget: "string", required: false }
+              - { label: "Link text", name: "label", widget: "string" }
+              - { label: "Link URL", name: "href", widget: "string" }
+              - { label: "Trailing text", name: "suffix", widget: "string", required: false }
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options: ["default", "neutral", "primary", "secondary", "accent", "info", "success", "warning", "error"]
+                default: "default"
+              - { label: "Underline on hover only", name: "hover_only", widget: "boolean", default: false, required: false }
+          - label: "Megamenu"
+            name: "megamenu"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - label: "Menu groups"
+                name: "groups"
+                widget: "list"
+                max: 10
+                fields:
+                  - { label: "Group label", name: "label", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text", required: false }
+                  - label: "Links"
+                    name: "links"
+                    widget: "list"
+                    fields:
+                      - { label: "Link label", name: "label", widget: "string" }
+                      - { label: "URL", name: "href", widget: "string" }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - label: "Orientation"
+                name: "orientation"
+                widget: "select"
+                options: ["vertical", "horizontal"]
+                default: "vertical"
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options: ["xs", "sm", "md", "lg", "xl"]
+                default: "md"
+              - label: "Menu items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string", required: false }
+                  - { label: "Active item", name: "active", widget: "boolean", default: false, required: false }
+                  - label: "Submenu items"
+                    name: "children"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Link", name: "href", widget: "string", required: false }
+          - label: "Navbar"
+            name: "navbar"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - { label: "Brand", name: "brand", widget: "string" }
+              - { label: "Brand link", name: "brand_href", widget: "string", required: false }
+              - label: "Navigation links"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+                  - { label: "Current page", name: "active", widget: "boolean", default: false, required: false }
+              - { label: "Call to action", name: "cta_label", widget: "string", required: false }
+              - { label: "Call to action link", name: "cta_href", widget: "string", required: false }
+          - label: "Pagination"
+            name: "pagination"
+            widget: "object"
+            fields:
+              - { label: "Accessible label", name: "label", widget: "string", required: false }
+              - { label: "Current page index (zero based)", name: "current", widget: "number", value_type: "int", default: 0 }
+              - { label: "Previous page link", name: "previous_href", widget: "string", required: false }
+              - { label: "Next page link", name: "next_href", widget: "string", required: false }
+              - label: "Pages"
+                name: "pages"
+                widget: "list"
+                fields:
+                  - { label: "Page label", name: "label", widget: "string" }
+                  - { label: "Page link", name: "href", widget: "string" }
+          - label: "Steps"
+            name: "steps"
+            widget: "object"
+            fields:
+              - label: "Orientation"
+                name: "orientation"
+                widget: "select"
+                options: ["horizontal", "vertical"]
+                default: "horizontal"
+              - { label: "Current step index (zero based)", name: "current", widget: "number", value_type: "int", default: 0 }
+              - label: "Steps"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Step label", name: "label", widget: "string" }
+                  - { label: "Description", name: "description", widget: "string", required: false }
+          - label: Calendar
+            name: calendar
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: true
+              - label: Date
+                name: value
+                widget: datetime
+                format: YYYY-MM-DD
+                date_format: YYYY-MM-DD
+                time_format: false
+                required: false
+              - label: Field name
+                name: name
+                widget: string
+                required: false
+          - label: Checkbox
+            name: checkbox
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: true
+              - label: Checked
+                name: checked
+                widget: boolean
+                default: false
+                required: false
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - primary
+                  - secondary
+                  - accent
+                  - success
+                  - warning
+                  - error
+                default: primary
+              - label: Disabled
+                name: disabled
+                widget: boolean
+                default: false
+                required: false
+          - label: Fieldset
+            name: fieldset
+            widget: object
+            fields:
+              - label: Legend
+                name: legend
+                widget: string
+                required: true
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Placeholder
+                name: placeholder
+                widget: string
+                required: false
+              - label: Value
+                name: value
+                widget: string
+                required: false
+              - label: Description
+                name: description
+                widget: text
+                required: false
+          - label: File Input
+            name: file_input
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Accepted file types
+                name: accept
+                widget: string
+                required: false
+              - label: Allow multiple files
+                name: multiple
+                widget: boolean
+                default: false
+                required: false
+              - label: Size
+                name: size
+                widget: select
+                options:
+                  - xs
+                  - sm
+                  - md
+                  - lg
+                default: md
+          - label: Filter
+            name: filter
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Options
+                name: options
+                widget: list
+                field:
+                  label: Option
+                  name: item
+                  widget: string
+              - label: Selected option
+                name: selected
+                widget: string
+                required: false
+          - label: Label
+            name: label
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: true
+              - label: Hint
+                name: hint
+                widget: string
+                required: false
+              - label: Required
+                name: required
+                widget: boolean
+                default: false
+                required: false
+          - label: Radio
+            name: radio
+            widget: object
+            fields:
+              - label: Legend
+                name: label
+                widget: string
+                required: true
+              - label: Group name
+                name: name
+                widget: string
+                required: false
+              - label: Options
+                name: options
+                widget: list
+                field:
+                  label: Option
+                  name: item
+                  widget: string
+              - label: Selected option
+                name: selected
+                widget: string
+                required: false
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - primary
+                  - secondary
+                  - accent
+                  - success
+                  - warning
+                  - error
+                default: primary
+          - label: Range
+            name: range
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Minimum
+                name: min
+                widget: number
+                value_type: int
+                min: 0
+                max: 100
+                default: 0
+              - label: Maximum
+                name: max
+                widget: number
+                value_type: int
+                min: 1
+                max: 100
+                default: 100
+              - label: Value
+                name: value
+                widget: number
+                value_type: int
+                min: 0
+                max: 100
+                default: 50
+              - label: Step
+                name: step
+                widget: number
+                value_type: int
+                min: 1
+                max: 100
+                default: 1
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - primary
+                  - secondary
+                  - accent
+                  - success
+                  - warning
+                  - error
+                default: primary
+          - label: Rating
+            name: rating
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Value
+                name: value
+                widget: number
+                value_type: int
+                min: 0
+                max: 10
+                default: 4
+              - label: Maximum stars
+                name: max
+                widget: number
+                value_type: int
+                min: 1
+                max: 10
+                default: 5
+              - label: Allow zero rating
+                name: half
+                widget: boolean
+                default: false
+                required: false
+              - label: Size
+                name: size
+                widget: select
+                options:
+                  - xs
+                  - sm
+                  - md
+                  - lg
+                default: md
+          - label: Select
+            name: select
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Options
+                name: options
+                widget: list
+                field:
+                  label: Option
+                  name: item
+                  widget: string
+              - label: Selected option
+                name: value
+                widget: string
+                required: false
+              - label: Size
+                name: size
+                widget: select
+                options:
+                  - xs
+                  - sm
+                  - md
+                  - lg
+                default: md
+          - label: Input Field
+            name: input_field
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Input type
+                name: input_type
+                widget: select
+                options:
+                  - text
+                  - email
+                  - password
+                  - search
+                  - tel
+                  - url
+                default: text
+              - label: Placeholder
+                name: placeholder
+                widget: string
+                required: false
+              - label: Value
+                name: value
+                widget: string
+                required: false
+              - label: Size
+                name: size
+                widget: select
+                options:
+                  - xs
+                  - sm
+                  - md
+                  - lg
+                default: md
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - default
+                  - primary
+                  - secondary
+                  - accent
+                  - success
+                  - warning
+                  - error
+                default: default
+              - label: Required
+                name: required
+                widget: boolean
+                default: false
+                required: false
+          - label: Textarea
+            name: textarea
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Placeholder
+                name: placeholder
+                widget: string
+                required: false
+              - label: Value
+                name: value
+                widget: text
+                required: false
+              - label: Rows
+                name: rows
+                widget: number
+                value_type: int
+                min: 2
+                max: 12
+                default: 4
+              - label: Size
+                name: size
+                widget: select
+                options:
+                  - xs
+                  - sm
+                  - md
+                  - lg
+                default: md
+          - label: Toggle
+            name: toggle
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: true
+              - label: Checked
+                name: checked
+                widget: boolean
+                default: false
+                required: false
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - primary
+                  - secondary
+                  - accent
+                  - success
+                  - warning
+                  - error
+                default: primary
+              - label: Disabled
+                name: disabled
+                widget: boolean
+                default: false
+                required: false
+          - label: Validator
+            name: validator
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Initial value
+                name: value
+                widget: string
+                required: false
+              - label: Validation pattern
+                name: pattern
+                widget: string
+                required: false
+              - label: Hint
+                name: hint
+                widget: string
+                required: false
+          - label: OTP
+            name: otp
+            widget: object
+            fields:
+              - label: Label
+                name: label
+                widget: string
+                required: false
+              - label: Number of digits
+                name: digits
+                widget: number
+                value_type: int
+                min: 4
+                max: 8
+                default: 6
+          - label: Drawer Sidebar
+            name: drawer_sidebar
+            widget: object
+            fields:
+              - label: Button label
+                name: label
+                widget: string
+                required: false
+              - label: Sidebar title
+                name: title
+                widget: string
+                required: false
+              - label: Content
+                name: content
+                widget: text
+                required: false
+              - label: Side
+                name: side
+                widget: select
+                options:
+                  - start
+                  - end
+                default: start
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - label: Link label
+                    name: label
+                    widget: string
+                    required: true
+                  - label: URL
+                    name: href
+                    widget: string
+                    required: true
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - label: Brand
+                name: brand
+                widget: string
+                required: false
+              - label: Description
+                name: description
+                widget: text
+                required: false
+              - label: Copyright
+                name: copyright
+                widget: string
+                required: false
+              - label: Columns
+                name: columns
+                widget: list
+                fields:
+                  - label: Column title
+                    name: title
+                    widget: string
+                    required: true
+                  - label: Links
+                    name: links
+                    widget: list
+                    fields:
+                      - label: Link label
+                        name: label
+                        widget: string
+                        required: true
+                      - label: URL
+                        name: href
+                        widget: string
+                        required: true
+          - label: Indicator
+            name: indicator
+            widget: object
+            fields:
+              - label: Content
+                name: content
+                widget: string
+                required: false
+              - label: Indicator text
+                name: indicator
+                widget: string
+                required: false
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - primary
+                  - secondary
+                  - accent
+                  - info
+                  - success
+                  - warning
+                  - error
+                default: primary
+              - label: Position
+                name: position
+                widget: select
+                options:
+                  - top-start
+                  - top-center
+                  - top-end
+                  - middle-start
+                  - middle-center
+                  - middle-end
+                  - bottom-start
+                  - bottom-center
+                  - bottom-end
+                default: top-end
+          - label: Join
+            name: join
+            widget: object
+            fields:
+              - label: Items
+                name: items
+                widget: list
+                field:
+                  label: Item
+                  name: item
+                  widget: string
+              - label: Direction
+                name: direction
+                widget: select
+                options:
+                  - horizontal
+                  - vertical
+                default: horizontal
+              - label: Item style
+                name: style
+                widget: select
+                options:
+                  - button
+                  - input
+                  - badge
+                default: button
+          - label: Mask
+            name: mask
+            widget: object
+            fields:
+              - label: Shape
+                name: shape
+                widget: select
+                options:
+                  - circle
+                  - squircle
+                  - hexagon
+                  - triangle
+                  - heart
+                  - star
+                default: squircle
+              - label: Text
+                name: text
+                widget: string
+                required: false
+              - label: Color
+                name: color
+                widget: select
+                options:
+                  - primary
+                  - secondary
+                  - accent
+                  - neutral
+                default: primary
+          - label: Stack
+            name: stack
+            widget: object
+            fields:
+              - label: Items
+                name: items
+                widget: list
+                field:
+                  label: Item
+                  name: item
+                  widget: string
+              - label: Alignment
+                name: alignment
+                widget: select
+                options:
+                  - bottom
+                  - top
+                  - start
+                  - end
+                default: bottom
+          - label: Browser
+            name: mockup_browser
+            widget: object
+            fields:
+              - label: Address
+                name: url
+                widget: string
+                required: false
+              - label: Content
+                name: content
+                widget: text
+                required: false
+          - label: Code
+            name: mockup_code
+            widget: object
+            fields:
+              - label: First line prefix
+                name: prefix
+                widget: string
+                required: false
+              - label: Code lines
+                name: lines
+                widget: list
+                field:
+                  label: Line
+                  name: item
+                  widget: string
+          - label: Phone
+            name: mockup_phone
+            widget: object
+            fields:
+              - label: Screen content
+                name: content
+                widget: text
+                required: false
+              - label: Screen theme
+                name: theme
+                widget: select
+                options:
+                  - dark
+                  - light
+                  - primary
+                default: dark
+          - label: Window
+            name: mockup_window
+            widget: object
+            fields:
+              - label: Window title
+                name: title
+                widget: string
+                required: false
+              - label: Content
+                name: content
+                widget: text
+                required: false
+          - label: "Heading"
+            name: "heading"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "title", widget: "string" }
+              - { label: "Anchor", name: "anchor", widget: "string" }
+
+          - label: "Divider"
+            name: "divider"
+            widget: "object"
+            fields: []
+
+          - label: "Text"
+            name: "text"
+            widget: "object"
+            fields:
+              - { label: "Content", name: "content", widget: "text" }
+
+          - label: "Breadcrumbs"
+            name: "breadcrumb"
+            widget: "object"
+            fields:
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+
+          - label: "Stat"
+            name: "stat"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Description", name: "description", widget: "string", required: false }
+              - { label: "Icon or emoji", name: "icon", widget: "string", required: false }
+
+          - label: "Table"
+            name: "table"
+            widget: "object"
+            fields:
+              - label: "Headers"
+                name: "headers"
+                widget: "list"
+                field: { label: "Header", name: "header", widget: "string" }
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - { label: "Service", name: "service", widget: "string" }
+                  - { label: "Status", name: "status", widget: "string" }
+                  - { label: "SLA", name: "sla", widget: "string" }
+              - { label: "Zebra stripes", name: "zebra", widget: "boolean", default: true, required: false }
+              - { label: "Pin header and footer rows", name: "pin_rows", widget: "boolean", default: false, required: false }
+
+          - label: "Tabs"
+            name: "tabs"
+            widget: "object"
+            fields:
+              - label: "Style"
+                name: "style"
+                widget: "select"
+                options: ["boxed", "lifted"]
+                default: "boxed"
+              - label: "Tabs"
+                name: "tabs"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Content", name: "content", widget: "text" }
 
   # ── Blog (taxonomies arrive in the blog phase) ────────────
   - name: "blog"

@@ -12,12 +12,12 @@ const config = {
         }),
         prerender: {
             origin: 'https://svelte-skeleton-cma.pages.dev',
-            handleHttpError: ({ path, referrers }) => {
-                if (path.startsWith('/services/') || path === '/contact') {
-                    console.warn(`Ignoring 404 for ${path} (linked from ${referrers.join(', ')})`);
+            handleHttpError: ({ path, referrer, message }) => {
+                if (path.startsWith('/services/') || path === '/contact' || path === '/contact/') {
+                    console.warn(`Ignoring 404 for ${path} (linked from ${referrer ?? 'an unknown source'})`);
                     return;
                 }
-                throw new Error(`404 ${path} (linked from ${referrers.join(', ')})`);
+                throw new Error(message);
             }
         }
     }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Security operations center</title>
+  <rect width="640" height="420" rx="28" fill="#ecfdf5"/>
+  <rect x="70" y="54" width="500" height="312" rx="18" fill="#fff" stroke="#a7f3d0" stroke-width="4"/>
+  <path d="M320 106l100 38v73c0 65-43 112-100 138-57-26-100-73-100-138v-73z" fill="#059669"/>
+  <path d="M320 138l68 26v53c0 44-28 79-68 100-40-21-68-56-68-100v-53z" fill="#d1fae5"/>
+  <path d="M285 218l24 24 48-52" fill="none" stroke="#047857" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="105" y="86" width="104" height="14" rx="7" fill="#d1d5db"/><rect x="431" y="86" width="104" height="14" rx="7" fill="#d1d5db"/>
+  <circle cx="128" cy="297" r="18" fill="#a7f3d0"/><circle cx="512" cy="297" r="18" fill="#a7f3d0"/>
+  <path d="M118 297h20m-10-10v20M502 297h20m-10-10v20" stroke="#059669" stroke-width="4" stroke-linecap="round"/>
+  <rect x="212" y="348" width="216" height="10" rx="5" fill="#d1fae5"/>
+</svg>

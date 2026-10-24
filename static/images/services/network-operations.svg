@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Network operations topology</title>
+  <rect width="640" height="420" rx="28" fill="#f5f3ff"/>
+  <path d="M320 140L166 258m154-118l154 118M166 258l154 48m154-48l-154 48" fill="none" stroke="#a78bfa" stroke-width="12" stroke-linecap="round"/>
+  <rect x="246" y="58" width="148" height="90" rx="18" fill="#6d28d9"/><rect x="92" y="224" width="148" height="90" rx="18" fill="#fff" stroke="#c4b5fd" stroke-width="5"/><rect x="400" y="224" width="148" height="90" rx="18" fill="#fff" stroke="#c4b5fd" stroke-width="5"/><rect x="246" y="282" width="148" height="90" rx="18" fill="#fff" stroke="#c4b5fd" stroke-width="5"/>
+  <circle cx="282" cy="91" r="8" fill="#ddd6fe"/><circle cx="320" cy="91" r="8" fill="#ddd6fe"/><circle cx="358" cy="91" r="8" fill="#ddd6fe"/>
+  <path d="M282 122h76" stroke="#ddd6fe" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="127" cy="258" r="10" fill="#7c3aed"/><circle cx="165" cy="258" r="10" fill="#7c3aed"/><circle cx="203" cy="258" r="10" fill="#7c3aed"/>
+  <circle cx="435" cy="258" r="10" fill="#7c3aed"/><circle cx="473" cy="258" r="10" fill="#7c3aed"/><circle cx="511" cy="258" r="10" fill="#7c3aed"/>
+  <path d="M285 330h70" stroke="#7c3aed" stroke-width="10" stroke-linecap="round"/>
+</svg>
